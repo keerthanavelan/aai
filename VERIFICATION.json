@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "api_tests": "async search, target stop, finalize, prediction, what-if, hidden challenge, replay, thresholds, export, input validation",
+  "dataset": "NSL-KDD",
+  "test_rows": 22544,
+  "configuration": "Tiny smoke settings, not final benchmark results",
+  "dependency_versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.0",
+    "flask": "3.1.3",
+    "joblib": "1.5.3"
+  },
+  "additional_checks": [
+    "Seed reproducibility",
+    "Monotonic best-so-far fitness",
+    "Grouped feature mask mapping",
+    "Unselected-feature prediction invariance",
+    "Attack type and unseen attack evaluation",
+    "Paired repeated experiments and bootstrap",
+    "Feature count bounds",
+    "Cancellation"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "quick_ga": {
+    "kind": "search",
+    "algorithm": "ga",
+    "config": {
+      "population": 4,
+      "iterations": 2,
+      "train_rows": 1000,
+      "validation_rows": 500,
+      "trees": 10
+    }
+  },
+  "security_constrained_pso": {
+    "kind": "search",
+    "algorithm": "pso",
+    "config": {
+      "population": 12,
+      "iterations": 10,
+      "min_features": 5,
+      "max_features": 25,
+      "min_attack_recall": 0.95,
+      "max_false_alarm_rate": 0.05,
+      "patience": 5
+    }
+  },
+  "score_custom_chromosome": {
+    "kind": "score",
+    "mask": "11111111111100000000000000000000000000000",
+    "config": {
+      "train_rows": 5000,
+      "validation_rows": 2000
+    }
+  },
+  "compare_five_seeds": {
+    "kind": "experiment",
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "config": {
+      "population": 16,
+      "iterations": 15,
+      "train_rows": 10000,
+      "validation_rows": 5000
+    }
+  }
+}

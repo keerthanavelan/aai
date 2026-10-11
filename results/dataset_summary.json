@@ -1,0 +1,68 @@
+{
+  "dataset": "NSL-KDD",
+  "original_features": 41,
+  "encoded_features": 121,
+  "source_training_rows": 125973,
+  "training_rows": 100778,
+  "search_training_rows": 20000,
+  "validation_rows": 25195,
+  "test_rows": 22544,
+  "feature_names": [
+    "duration",
+    "protocol_type",
+    "service",
+    "flag",
+    "src_bytes",
+    "dst_bytes",
+    "land",
+    "wrong_fragment",
+    "urgent",
+    "hot",
+    "num_failed_logins",
+    "logged_in",
+    "num_compromised",
+    "root_shell",
+    "su_attempted",
+    "num_root",
+    "num_file_creations",
+    "num_shells",
+    "num_access_files",
+    "num_outbound_cmds",
+    "is_host_login",
+    "is_guest_login",
+    "count",
+    "srv_count",
+    "serror_rate",
+    "srv_serror_rate",
+    "rerror_rate",
+    "srv_rerror_rate",
+    "same_srv_rate",
+    "diff_srv_rate",
+    "srv_diff_host_rate",
+    "dst_host_count",
+    "dst_host_srv_count",
+    "dst_host_same_srv_rate",
+    "dst_host_diff_srv_rate",
+    "dst_host_same_src_port_rate",
+    "dst_host_srv_diff_host_rate",
+    "dst_host_serror_rate",
+    "dst_host_srv_serror_rate",
+    "dst_host_rerror_rate",
+    "dst_host_srv_rerror_rate"
+  ],
+  "class_counts": {
+    "train": {
+      "normal": 53874,
+      "attack": 46904
+    },
+    "validation": {
+      "normal": 13469,
+      "attack": 11726
+    },
+    "test": {
+      "normal": 9711,
+      "attack": 12833
+    }
+  },
+  "expected_full_files": true
+}
