@@ -78,8 +78,8 @@ class SearchConfig:
             value = getattr(cfg, name)
             if value is not None and not 0 <= value <= 1:
                 raise ValueError(f'{name} must be between 0 and 1, or null.')
-        if not 0.05<=cfg.attack_threshold<=0.95:
-            raise ValueError('attack_threshold must be between 0.05 and 0.95.')
+        if not 0.001<=cfg.attack_threshold<=0.999:
+            raise ValueError('attack_threshold must be between 0.001 and 0.999.')
         if cfg.min_features > cfg.max_features:
             raise ValueError('min_features must not exceed max_features.')
         if cfg.tournament_size > cfg.population:

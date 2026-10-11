@@ -109,8 +109,8 @@ def classify(records,saved,threshold=None):
     probabilities=saved['model'].predict_proba(x)
     attack_column=list(saved['model'].classes_).index(1)
     threshold=saved.get('attack_threshold',0.5) if threshold is None else threshold
-    if isinstance(threshold,bool) or not isinstance(threshold,(int,float)) or not 0.05<=threshold<=0.95:
-        raise ValueError('threshold must be between 0.05 and 0.95.')
+    if isinstance(threshold,bool) or not isinstance(threshold,(int,float)) or not 0.001<=threshold<=0.999:
+        raise ValueError('threshold must be between 0.001 and 0.999.')
     predictions=(probabilities[:,attack_column]>=threshold).astype(np.int8)
     seconds=time.perf_counter()-start
     return {'model_id':saved['model_id'],'algorithm':saved['algorithm'],
@@ -147,5 +147,5 @@ def threshold_sweep(saved,root):
     data=np.load(root/'models'/f"{saved['model_id']}.predictions.npz")
     return {'model_id':saved['model_id'],'evaluation_set':'KDDTest+',
             'rows':[{'threshold':float(t),**metrics(data['y'],(data['attack_scores']>=t).astype(np.int8))}
-                    for t in np.arange(.05,1,.05)],
+                    for t in np.r_[.001,.005,.01,.025,np.arange(.05,1,.05)]],
             'note':'Exploratory test-set tradeoff. Choose deployment thresholds on validation data, not this curve.'}

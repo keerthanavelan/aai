@@ -1,3 +1,15 @@
+## Final additional detector (no new training required)
+
+A recall-focused training-validation calibration selected PSO seed 3 at threshold
+0.01: **92.47% test accuracy, 94.51% attack recall, 93.46% F1**, with **10.23% false
+alarms**, using 11 inputs. This is an exploratory benchmark revision after prior
+test-set inspection, not a fresh independent assessment or a proven optimum.
+
+Run `.\venv\Scripts\python.exe activate_detector.py` to verify existing saved
+scores and create the additional calibrated model without training. It prints
+its model ID. See `FINAL_DETECTOR.md` for the selection evidence, limitations and
+frontend handoff. Keep the original five-seed results separate.
+
 ## Current status: read your existing results first
 
 If you already completed the five-seed experiment, **do not start another training run**.

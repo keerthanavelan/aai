@@ -1,6 +1,7 @@
 """Local API server. Person 2 can add templates/static files without changing src/."""
 import io
 import csv
+import json
 from pathlib import Path
 import pandas as pd
 from flask import Flask,jsonify,request,render_template,Response
@@ -42,6 +43,15 @@ def home():
 
 @app.get('/api/dataset')
 def dataset():return jsonify(service.summary())
+
+
+@app.get('/api/default-detector')
+def default_detector():
+    path=service.root/'detector_policy.json'
+    if not path.is_file():raise KeyError('Default detector policy is unavailable.')
+    policy=json.loads(path.read_text())
+    policy['available']=(service.root/'models'/f'{policy["model_id"]}.joblib').is_file()
+    return jsonify(policy)
 
 
 @app.post('/api/run')

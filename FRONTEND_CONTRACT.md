@@ -155,3 +155,22 @@ remain available. Never show random/demo values as completed real results.
 
 Server restarts clear active jobs/challenges; saved model files and JSON results
 persist. Reload completed records via /api/results and models via /api/models.
+
+
+## Calibrated default detector
+
+Read `detector_policy.json` for the additional default model ID. The user first
+runs `activate_detector.py`, which verifies cached metrics and saves that model.
+Choose it in `/api/models`, initialize the detection threshold to **0.01**, and
+allow 0.001–0.999. Without a threshold override, this calibrated model defaults
+to 0.01. Existing model defaults and original experiment files are unchanged.
+The threshold curve endpoint includes 0.001, 0.005, 0.01 and 0.025 too.
+
+Display its accuracy/recall/F1 AND false-alarm rate, with the exploratory
+calibration note. Keep it separate from the original five-seed comparison.
+Do not replace the PSO mean with this model's score, invent an optimization
+history for calibration, or describe the attack score as calibrated certainty.
+The inherited 98% recall / 2% FAR test constraints are not met; show the recorded
+`test_security_constraints_met=false` rather than claiming they were achieved.
+
+Frontend bootstrap: `GET /api/default-detector` returns the configured model ID, threshold, selection evidence and an `available` flag. After activation, `available=true`. Use that ID in classification requests.

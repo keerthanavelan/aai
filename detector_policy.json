@@ -1,0 +1,56 @@
+{
+  "source_experiment_id": "31e9b36582044da995b33f1b20eb6c92",
+  "source_model_id": "99af1769fd4d4e0a831a0bd435890d60",
+  "model_id": "ddfca6f3f2704336be92f875dbabdfd7",
+  "algorithm": "pso_calibrated",
+  "attack_threshold": 0.01,
+  "expected_test_metrics": {
+    "accuracy": 0.9247249822569198,
+    "precision": 0.9243255601280292,
+    "recall": 0.9451414322449934,
+    "f1": 0.9346176073974186,
+    "confusion_matrix": [
+      [
+        8718,
+        993
+      ],
+      [
+        704,
+        12129
+      ]
+    ],
+    "false_alarm_rate": 0.10225517454433117,
+    "missed_attack_rate": 0.054858567755006624,
+    "false_alarms": 993,
+    "missed_attacks": 704
+  },
+  "validation_calibration": {
+    "record_index": 5,
+    "algorithm": "pso",
+    "seed": 3,
+    "threshold": 0.01,
+    "attack_macro_recall": 1.0,
+    "feature_count": 11,
+    "validation_metrics": {
+      "accuracy": 0.9909902758483826,
+      "precision": 0.9810089517275997,
+      "recall": 1.0,
+      "f1": 0.9904134465137886,
+      "confusion_matrix": [
+        [
+          13242,
+          227
+        ],
+        [
+          0,
+          11726
+        ]
+      ],
+      "false_alarm_rate": 0.01685351547999109,
+      "missed_attack_rate": 0.0,
+      "false_alarms": 227,
+      "missed_attacks": 0
+    }
+  },
+  "evaluation_note": "Recall-focused validation calibration of previously frozen masks. No test labels used to select mask or threshold in this step. Exploratory revision after prior KDDTest+ inspection; masks were previously optimized using this validation split, so this is not nested validation or a fresh independent test. No global-optimum claim."
+}
