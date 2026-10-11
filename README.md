@@ -1,3 +1,31 @@
+## Current status: read your existing results first
+
+If you already completed the five-seed experiment, **do not start another training run**.
+From this project folder in Windows PowerShell, run:
+
+```powershell
+.\venv\Scripts\python.exe report_results.py
+```
+
+This command reads every completed `results/experiment_*.json`, prints test
+accuracy, attack recall, F1, false-alarm rate, sample standard deviations,
+feature counts, and the validation-selected saved model for each method. It
+uses no dataset, never loads a model and never trains. Configurations stay separate.
+The currently committed experiment has a tiny verification budget; your laptop
+may have the later five-seed report. Upload that **experiment JSON** to GitHub
+or attach it in chat for review. Do not upload the virtual environment.
+
+`run_improved.py` and its matching `src/` modules are now included. That command
+**does train a new experiment**; adding the file does not improve existing models.
+Only use it if you deliberately choose to spend that training budget. Its
+validation-selected security settings do not guarantee better unseen-test results.
+See `REVISION_STEPS.md` for the revised objective and limitations.
+
+The VS Code source-control `U` means untracked, not an error. New files remain
+local until committed and pushed. `.gitignore` prevents future generated binary,
+cache, virtual-environment and dataset files from being added. Files already
+committed are retained, and existing result/model files are not deleted.
+
 # Person 1: complete NSL-KDD optimization and security backend
 
 This folder supersedes the first-two-files starter. It contains the data,

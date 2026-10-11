@@ -1,0 +1,9 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+*.joblib
+*.npz
+data/*.txt
+results/*.tmp

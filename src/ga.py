@@ -5,9 +5,11 @@ from .search_common import snapshot, stopping, finish
 
 
 def run_ga(evaluator,cfg,progress=None,initial_masks=None):
-    rng=np.random.default_rng(cfg.seed)
-    positions=initial_positions(cfg,rng,initial_masks)
     start=time.perf_counter()
+    rng=np.random.default_rng(cfg.seed)
+    supplied=list(initial_masks or [])
+    if cfg.seed_ranked:supplied+=(evaluator.ranked_masks()[:max(0,cfg.population-len(supplied))])
+    positions=initial_positions(cfg,rng,supplied,evaluator.allowed)
     scores=[evaluator.evaluate(p) for p in positions]
     index=int(np.argmin([s['fitness'] for s in scores]))
     best,best_score=positions[index].copy(),scores[index].copy()
@@ -32,7 +34,7 @@ def run_ga(evaluator,cfg,progress=None,initial_masks=None):
             for child in [a,b]:
                 flips=rng.random(41)<cfg.mutation_rate
                 child[flips]=1-child[flips]
-                children.append(repair(child,rng,cfg))
+                children.append(repair(child,rng,cfg,evaluator.allowed))
                 if len(children)==cfg.population:break
         positions=np.array(children)
         scores=[evaluator.evaluate(p) for p in positions]

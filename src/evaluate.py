@@ -6,7 +6,7 @@ import joblib
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.ensemble import RandomForestClassifier
 from .preprocess import CATEGORICAL, NUMERIC, FEATURE_NAMES, transform_features, mask_to_columns
-from .fitness import metrics
+from .fitness import metrics,make_forest,attack_type_weights
 from .storage import atomic_json
 
 
@@ -21,9 +21,9 @@ def train_final(bundle,result,cfg,root):
     columns=mask_to_columns(result['best_mask'],groups)
     x=transform_features(bundle['raw_train'],encoder)[:,columns]
     test=transform_features(bundle['raw_test'],encoder)[:,columns]
-    model=RandomForestClassifier(n_estimators=cfg.final_trees,max_depth=cfg.max_depth,
-                                 random_state=42,n_jobs=-1)
-    model.fit(x,bundle['y_full'])
+    model=make_forest(cfg,cfg.final_trees)
+    model.fit(x,bundle['y_full'],sample_weight=attack_type_weights(
+        bundle.get('train_attack_types'),bundle['y_full'],cfg.weight_mode))
     attack_column=list(model.classes_).index(1)
     test_scores=model.predict_proba(test)[:,attack_column]
     predictions=(test_scores>=cfg.attack_threshold).astype(np.int8)

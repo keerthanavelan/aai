@@ -11,6 +11,7 @@ def snapshot(iteration,positions,scores,best,best_score,evaluator,start,extra=No
          'elapsed_seconds':time.perf_counter()-start,
          'evaluation_calls':evaluator.calls,'classifier_fits':evaluator.fits,
          'attack_recall':best_score.get('recall'),
+         'attack_macro_recall':best_score.get('attack_macro_recall'),
          'false_alarm_rate':best_score.get('false_alarm_rate'),
          'security_feasible':best_score.get('security_feasible',True),
          'candidates':[{'mask':p.tolist(),'fitness':s['fitness'],

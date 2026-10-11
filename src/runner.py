@@ -47,6 +47,8 @@ def experiment(bundle,cfg,seeds,root=ROOT,progress=None,cancel=None):
         values={'accuracy':[r['test_metrics']['accuracy'] for r in items],
                 'f1':[r['test_metrics']['f1'] for r in items],
                 'recall':[r['test_metrics']['recall'] for r in items],
+                'false_alarm_rate':[r['test_metrics']['false_alarm_rate'] for r in items],
+                'missed_attacks':[r['test_metrics']['missed_attacks'] for r in items],
                 'features':[r['feature_count'] for r in items],
                 'search_seconds':[r['search_seconds'] for r in items],
                 'pipeline_ms_per_connection':[r['prediction_timing']['pipeline_ms_per_connection'] for r in items]}

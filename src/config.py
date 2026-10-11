@@ -14,7 +14,7 @@ class SearchConfig:
     train_rows: int = 10000
     validation_rows: int = 5000
     trees: int = 40
-    max_depth: int = 16
+    max_depth: int | None = 16
     accuracy_weight: float = 0.9
     mutation_rate: float = 0.02439
     crossover_rate: float = 0.8
@@ -34,6 +34,11 @@ class SearchConfig:
     attack_threshold: float = 0.5
     min_attack_recall: float | None = None
     max_false_alarm_rate: float | None = None
+    objective: str = 'accuracy'
+    weight_mode: str = 'none'
+    rf_max_features: str | float = 'sqrt'
+    exclude_constant: bool = False
+    seed_ranked: bool = False
 
     @classmethod
     def parse(cls, data=None):
@@ -49,6 +54,7 @@ class SearchConfig:
                   'chi_k': (1, 41), 'final_trees': (5, 300)}
         for name, (low, high) in limits.items():
             value = getattr(cfg, name)
+            if name=='max_depth' and value is None:continue
             if type(value) is not int or not low <= value <= high:
                 raise ValueError(f'{name} must be an integer from {low} to {high}.')
         for name in ['accuracy_weight', 'mutation_rate', 'crossover_rate', 'inertia',
@@ -78,6 +84,15 @@ class SearchConfig:
             raise ValueError('min_features must not exceed max_features.')
         if cfg.tournament_size > cfg.population:
             raise ValueError('tournament_size must not exceed population.')
+        if cfg.objective not in ['accuracy','attack_aware']:
+            raise ValueError('objective must be accuracy or attack_aware.')
+        if cfg.weight_mode not in ['none','attack_type_sqrt','attack_type_equal']:
+            raise ValueError('weight_mode must be none, attack_type_sqrt or attack_type_equal.')
+        if cfg.rf_max_features!='sqrt' and (isinstance(cfg.rf_max_features,bool) or
+            not isinstance(cfg.rf_max_features,(int,float)) or not 0<cfg.rf_max_features<=1):
+            raise ValueError('rf_max_features must be sqrt or a fraction in (0,1].')
+        if type(cfg.exclude_constant) is not bool or type(cfg.seed_ranked) is not bool:
+            raise ValueError('exclude_constant and seed_ranked must be booleans.')
         return cfg
 
     def to_dict(self):
@@ -100,21 +115,24 @@ def parse_mask(value, cfg=None):
     return mask
 
 
-def repair(mask, rng, cfg):
+def repair(mask, rng, cfg, allowed=None):
     mask = mask.copy()
+    allowed=np.ones(41,dtype=bool) if allowed is None else np.asarray(allowed,dtype=bool)
+    mask[~allowed]=0
+    if cfg.min_features>int(allowed.sum()):raise ValueError('min_features exceeds nonconstant feature count.')
     count = int(mask.sum())
     if count < cfg.min_features:
-        mask[rng.choice(np.flatnonzero(mask == 0), cfg.min_features-count, replace=False)] = 1
+        mask[rng.choice(np.flatnonzero((mask == 0)&allowed), cfg.min_features-count, replace=False)] = 1
     if count > cfg.max_features:
         mask[rng.choice(np.flatnonzero(mask == 1), count-cfg.max_features, replace=False)] = 0
     return mask
 
 
-def initial_positions(cfg, rng, supplied=None):
+def initial_positions(cfg, rng, supplied=None, allowed=None):
     supplied = supplied if supplied is not None else []
     if not isinstance(supplied, list) or len(supplied) > cfg.population:
         raise ValueError('initial_masks must be a list no longer than population.')
-    positions = [parse_mask(mask, cfg) for mask in supplied]
+    positions = [repair(parse_mask(mask, cfg),rng,cfg,allowed) for mask in supplied]
     while len(positions) < cfg.population:
-        positions.append(repair(rng.integers(0,2,41,dtype=np.int8),rng,cfg))
+        positions.append(repair(rng.integers(0,2,41,dtype=np.int8),rng,cfg,allowed))
     return np.array(positions)

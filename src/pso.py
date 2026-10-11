@@ -6,10 +6,12 @@ from .search_common import snapshot, stopping, finish
 
 
 def run_pso(evaluator,cfg,progress=None,initial_masks=None):
-    rng=np.random.default_rng(cfg.seed)
-    positions=initial_positions(cfg,rng,initial_masks)
-    velocity=rng.uniform(-1,1,positions.shape)
     start=time.perf_counter()
+    rng=np.random.default_rng(cfg.seed)
+    supplied=list(initial_masks or [])
+    if cfg.seed_ranked:supplied+=(evaluator.ranked_masks()[:max(0,cfg.population-len(supplied))])
+    positions=initial_positions(cfg,rng,supplied,evaluator.allowed)
+    velocity=rng.uniform(-1,1,positions.shape)
     scores=[evaluator.evaluate(p) for p in positions]
     personal=positions.copy()
     personal_fitness=np.array([s['fitness'] for s in scores])
@@ -28,7 +30,7 @@ def run_pso(evaluator,cfg,progress=None,initial_masks=None):
                  +cfg.social*rng.random(positions.shape)*(best-positions)
         velocity=np.clip(velocity,-cfg.velocity_limit,cfg.velocity_limit)
         positions=(rng.random(positions.shape)<expit(velocity)).astype(np.int8)
-        positions=np.array([repair(p,rng,cfg) for p in positions])
+        positions=np.array([repair(p,rng,cfg,evaluator.allowed) for p in positions])
         scores=[evaluator.evaluate(p) for p in positions]
         for j,score in enumerate(scores):
             if score['fitness']<personal_fitness[j]:

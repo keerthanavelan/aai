@@ -13,6 +13,8 @@ def baseline_masks(evaluator,k):
     scores=np.nan_to_num(scores,nan=0.0,posinf=0.0,neginf=0.0)
     names=evaluator.bundle['feature_names']
     grouped=np.array([scores[evaluator.bundle['feature_groups'][name]].sum() for name in names])
+    grouped[~evaluator.allowed]=-1
+    if k>int(evaluator.allowed.sum()):raise ValueError('chi_k exceeds eligible feature count.')
     order=np.argsort(-grouped,kind='stable')
     mask=np.zeros(41,dtype=np.int8);mask[order[:k]]=1
     ranking=[{'feature':names[i],'score':float(grouped[i]),'selected':bool(mask[i])} for i in order]
