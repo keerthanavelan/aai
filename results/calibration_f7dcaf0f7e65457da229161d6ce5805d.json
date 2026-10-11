@@ -1,0 +1,495 @@
+{
+  "selected": {
+    "weight_mode": "attack_type_equal",
+    "threshold": 0.15,
+    "quality": 0.9844685735236124,
+    "attack_macro_recall": 0.9710696710696711,
+    "accuracy": 0.9977376463584045,
+    "precision": 0.9954147915428377,
+    "recall": 0.9997441582807437,
+    "f1": 0.9975747776879548,
+    "confusion_matrix": [
+      [
+        13415,
+        54
+      ],
+      [
+        3,
+        11723
+      ]
+    ],
+    "false_alarm_rate": 0.004009206325636647,
+    "missed_attack_rate": 0.0002558417192563534,
+    "false_alarms": 54,
+    "missed_attacks": 3
+  },
+  "candidates": [
+    {
+      "weight_mode": "attack_type_sqrt",
+      "threshold": 0.05,
+      "quality": 0.9849837627794328,
+      "attack_macro_recall": 0.974915824915825,
+      "accuracy": 0.9947211748362771,
+      "precision": 0.9889498102066638,
+      "recall": 0.9998294388538291,
+      "f1": 0.9943598659938085,
+      "confusion_matrix": [
+        [
+          13338,
+          131
+        ],
+        [
+          2,
+          11724
+        ]
+      ],
+      "false_alarm_rate": 0.009726037567748163,
+      "missed_attack_rate": 0.00017056114617090227,
+      "false_alarms": 131,
+      "missed_attacks": 2
+    },
+    {
+      "weight_mode": "attack_type_sqrt",
+      "threshold": 0.1,
+      "quality": 0.9610575499195528,
+      "attack_macro_recall": 0.9249158249158249,
+      "accuracy": 0.9970232188926375,
+      "precision": 0.9938957185247986,
+      "recall": 0.9997441582807437,
+      "f1": 0.9968113600612218,
+      "confusion_matrix": [
+        [
+          13397,
+          72
+        ],
+        [
+          3,
+          11723
+        ]
+      ],
+      "false_alarm_rate": 0.005345608434182196,
+      "missed_attack_rate": 0.0002558417192563534,
+      "false_alarms": 72,
+      "missed_attacks": 3
+    },
+    {
+      "weight_mode": "attack_type_sqrt",
+      "threshold": 0.15,
+      "quality": 0.9615587007102575,
+      "attack_macro_recall": 0.9249158249158249,
+      "accuracy": 0.998094860091288,
+      "precision": 0.996176070700204,
+      "recall": 0.9997441582807437,
+      "f1": 0.9979569251723844,
+      "confusion_matrix": [
+        [
+          13424,
+          45
+        ],
+        [
+          3,
+          11723
+        ]
+      ],
+      "false_alarm_rate": 0.0033410052713638725,
+      "missed_attack_rate": 0.0002558417192563534,
+      "false_alarms": 45,
+      "missed_attacks": 3
+    },
+    {
+      "weight_mode": "attack_type_sqrt",
+      "threshold": 0.2,
+      "quality": 0.9598741596094597,
+      "attack_macro_recall": 0.9210696710696711,
+      "accuracy": 0.9986108354832308,
+      "precision": 0.9973623755636859,
+      "recall": 0.9996588777076582,
+      "f1": 0.9985093061885089,
+      "confusion_matrix": [
+        [
+          13438,
+          31
+        ],
+        [
+          4,
+          11722
+        ]
+      ],
+      "false_alarm_rate": 0.0023015814091617787,
+      "missed_attack_rate": 0.00034112229234180454,
+      "false_alarms": 31,
+      "missed_attacks": 4
+    },
+    {
+      "weight_mode": "attack_type_sqrt",
+      "threshold": 0.25,
+      "quality": 0.9599855264518384,
+      "attack_macro_recall": 0.9210696710696711,
+      "accuracy": 0.9988489779718198,
+      "precision": 0.9978717970545671,
+      "recall": 0.9996588777076582,
+      "f1": 0.9987645379798066,
+      "confusion_matrix": [
+        [
+          13444,
+          25
+        ],
+        [
+          4,
+          11722
+        ]
+      ],
+      "false_alarm_rate": 0.001856114039646596,
+      "missed_attack_rate": 0.00034112229234180454,
+      "false_alarms": 25,
+      "missed_attacks": 4
+    },
+    {
+      "weight_mode": "attack_type_sqrt",
+      "threshold": 0.3,
+      "quality": 0.9600412098730279,
+      "attack_macro_recall": 0.9210696710696711,
+      "accuracy": 0.9989680492161143,
+      "precision": 0.9981267029972752,
+      "recall": 0.9996588777076582,
+      "f1": 0.9988922028121006,
+      "confusion_matrix": [
+        [
+          13447,
+          22
+        ],
+        [
+          4,
+          11722
+        ]
+      ],
+      "false_alarm_rate": 0.0016333803548890043,
+      "missed_attack_rate": 0.00034112229234180454,
+      "false_alarms": 22,
+      "missed_attacks": 4
+    },
+    {
+      "weight_mode": "attack_type_sqrt",
+      "threshold": 0.35,
+      "quality": 0.9595215004745743,
+      "attack_macro_recall": 0.9198501588745491,
+      "accuracy": 0.9991665012899384,
+      "precision": 0.9986367896396012,
+      "recall": 0.9995735971345727,
+      "f1": 0.9991049737885181,
+      "confusion_matrix": [
+        [
+          13453,
+          16
+        ],
+        [
+          5,
+          11721
+        ]
+      ],
+      "false_alarm_rate": 0.0011879129853738213,
+      "missed_attack_rate": 0.00042640286542725567,
+      "false_alarms": 16,
+      "missed_attacks": 5
+    },
+    {
+      "weight_mode": "attack_type_sqrt",
+      "threshold": 0.4,
+      "quality": 0.9593754725840082,
+      "attack_macro_recall": 0.9195320168241237,
+      "accuracy": 0.9992061917047033,
+      "precision": 0.998891919536311,
+      "recall": 0.9994030359884019,
+      "f1": 0.9991474123966237,
+      "confusion_matrix": [
+        [
+          13456,
+          13
+        ],
+        [
+          7,
+          11719
+        ]
+      ],
+      "false_alarm_rate": 0.0009651793006162299,
+      "missed_attack_rate": 0.0005969640115981579,
+      "false_alarms": 13,
+      "missed_attacks": 7
+    },
+    {
+      "weight_mode": "attack_type_sqrt",
+      "threshold": 0.5,
+      "quality": 0.9594682782859905,
+      "attack_macro_recall": 0.9195320168241237,
+      "accuracy": 0.9994046437785274,
+      "precision": 0.9993178135925642,
+      "recall": 0.9994030359884019,
+      "f1": 0.9993604229736068,
+      "confusion_matrix": [
+        [
+          13461,
+          8
+        ],
+        [
+          7,
+          11719
+        ]
+      ],
+      "false_alarm_rate": 0.0005939564926869107,
+      "missed_attack_rate": 0.0005969640115981579,
+      "false_alarms": 8,
+      "missed_attacks": 7
+    },
+    {
+      "weight_mode": "attack_type_equal",
+      "threshold": 0.05,
+      "quality": 0.9844454897079353,
+      "attack_macro_recall": 0.974915824915825,
+      "accuracy": 0.9935701528080968,
+      "precision": 0.98653651969034,
+      "recall": 0.9998294388538291,
+      "f1": 0.993138500635324,
+      "confusion_matrix": [
+        [
+          13309,
+          160
+        ],
+        [
+          2,
+          11724
+        ]
+      ],
+      "false_alarm_rate": 0.011879129853738214,
+      "missed_attack_rate": 0.00017056114617090227,
+      "false_alarms": 160,
+      "missed_attacks": 2
+    },
+    {
+      "weight_mode": "attack_type_equal",
+      "threshold": 0.1,
+      "quality": 0.9858561363780667,
+      "attack_macro_recall": 0.974915824915825,
+      "accuracy": 0.9965866243302243,
+      "precision": 0.9928861788617886,
+      "recall": 0.9998294388538291,
+      "f1": 0.9963457125860458,
+      "confusion_matrix": [
+        [
+          13385,
+          84
+        ],
+        [
+          2,
+          11724
+        ]
+      ],
+      "false_alarm_rate": 0.006236543173212562,
+      "missed_attack_rate": 0.00017056114617090227,
+      "false_alarms": 84,
+      "missed_attacks": 2
+    },
+    {
+      "weight_mode": "attack_type_equal",
+      "threshold": 0.15,
+      "quality": 0.9844685735236124,
+      "attack_macro_recall": 0.9710696710696711,
+      "accuracy": 0.9977376463584045,
+      "precision": 0.9954147915428377,
+      "recall": 0.9997441582807437,
+      "f1": 0.9975747776879548,
+      "confusion_matrix": [
+        [
+          13415,
+          54
+        ],
+        [
+          3,
+          11723
+        ]
+      ],
+      "false_alarm_rate": 0.004009206325636647,
+      "missed_attack_rate": 0.0002558417192563534,
+      "false_alarms": 54,
+      "missed_attacks": 3
+    },
+    {
+      "weight_mode": "attack_type_equal",
+      "threshold": 0.2,
+      "quality": 0.9598184761882702,
+      "attack_macro_recall": 0.9210696710696711,
+      "accuracy": 0.9984917642389363,
+      "precision": 0.997107859816264,
+      "recall": 0.9996588777076582,
+      "f1": 0.998381739204497,
+      "confusion_matrix": [
+        [
+          13435,
+          34
+        ],
+        [
+          4,
+          11722
+        ]
+      ],
+      "false_alarm_rate": 0.0025243150939193706,
+      "missed_attack_rate": 0.00034112229234180454,
+      "false_alarms": 34,
+      "missed_attacks": 4
+    },
+    {
+      "weight_mode": "attack_type_equal",
+      "threshold": 0.25,
+      "quality": 0.9600040875922349,
+      "attack_macro_recall": 0.9210696710696711,
+      "accuracy": 0.9988886683865846,
+      "precision": 0.9979567512344628,
+      "recall": 0.9996588777076582,
+      "f1": 0.9988070892978869,
+      "confusion_matrix": [
+        [
+          13445,
+          24
+        ],
+        [
+          4,
+          11722
+        ]
+      ],
+      "false_alarm_rate": 0.001781869478060732,
+      "missed_attack_rate": 0.00034112229234180454,
+      "false_alarms": 24,
+      "missed_attacks": 4
+    },
+    {
+      "weight_mode": "attack_type_equal",
+      "threshold": 0.3,
+      "quality": 0.9600149244684618,
+      "attack_macro_recall": 0.920985495985496,
+      "accuracy": 0.9990077396308792,
+      "precision": 0.9982965675836811,
+      "recall": 0.9995735971345727,
+      "f1": 0.9989346742233776,
+      "confusion_matrix": [
+        [
+          13449,
+          20
+        ],
+        [
+          5,
+          11721
+        ]
+      ],
+      "false_alarm_rate": 0.0014848912317172768,
+      "missed_attack_rate": 0.00042640286542725567,
+      "false_alarms": 20,
+      "missed_attacks": 5
+    },
+    {
+      "weight_mode": "attack_type_equal",
+      "threshold": 0.35,
+      "quality": 0.9593219954212386,
+      "attack_macro_recall": 0.9196161919082988,
+      "accuracy": 0.9990077396308792,
+      "precision": 0.9985513421389007,
+      "recall": 0.9993177554153164,
+      "f1": 0.9989344017731554,
+      "confusion_matrix": [
+        [
+          13452,
+          17
+        ],
+        [
+          8,
+          11718
+        ]
+      ],
+      "false_alarm_rate": 0.0012621575469596853,
+      "missed_attack_rate": 0.0006822445846836091,
+      "false_alarms": 17,
+      "missed_attacks": 8
+    },
+    {
+      "weight_mode": "attack_type_equal",
+      "threshold": 0.4,
+      "quality": 0.9592115349324976,
+      "attack_macro_recall": 0.9193636666557735,
+      "accuracy": 0.999047430045644,
+      "precision": 0.9987214456188204,
+      "recall": 0.999232474842231,
+      "f1": 0.9989768948759485,
+      "confusion_matrix": [
+        [
+          13454,
+          15
+        ],
+        [
+          9,
+          11717
+        ]
+      ],
+      "false_alarm_rate": 0.0011136684237879576,
+      "missed_attack_rate": 0.0007675251577690602,
+      "false_alarms": 15,
+      "missed_attacks": 9
+    },
+    {
+      "weight_mode": "attack_type_equal",
+      "threshold": 0.5,
+      "quality": 0.9528220300363155,
+      "attack_macro_recall": 0.9065269663190731,
+      "accuracy": 0.9991268108751736,
+      "precision": 0.9991470487888093,
+      "recall": 0.9989766331229746,
+      "f1": 0.9990618336886994,
+      "confusion_matrix": [
+        [
+          13459,
+          10
+        ],
+        [
+          12,
+          11714
+        ]
+      ],
+      "false_alarm_rate": 0.0007424456158586384,
+      "missed_attack_rate": 0.0010233668770254136,
+      "false_alarms": 10,
+      "missed_attacks": 12
+    }
+  ],
+  "config": {
+    "population": 16,
+    "iterations": 15,
+    "seed": 1,
+    "train_rows": 20000,
+    "validation_rows": 25195,
+    "trees": 40,
+    "max_depth": null,
+    "accuracy_weight": 0.98,
+    "mutation_rate": 0.02439,
+    "crossover_rate": 0.8,
+    "tournament_size": 3,
+    "inertia": 0.7,
+    "cognitive": 1.5,
+    "social": 1.5,
+    "velocity_limit": 4.0,
+    "min_features": 8,
+    "max_features": 35,
+    "patience": 0,
+    "target_accuracy": null,
+    "target_fitness": null,
+    "max_seconds": 0.0,
+    "chi_k": 12,
+    "final_trees": 150,
+    "attack_threshold": 0.15,
+    "min_attack_recall": 0.98,
+    "max_false_alarm_rate": 0.02,
+    "objective": "attack_aware",
+    "weight_mode": "attack_type_equal",
+    "rf_max_features": 0.5,
+    "exclude_constant": true,
+    "seed_ranked": true
+  },
+  "selection_set": "Training split and validation split of KDDTrain+ only; no KDDTest+ selection.",
+  "limits": "Selected on a random within-training split; unseen traffic may behave differently."
+}
